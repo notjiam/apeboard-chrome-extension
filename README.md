@@ -2,6 +2,8 @@
 
 Chrome extension wrap https://apeboard.finance/ in iframe and get latest price.
 
+![Apeboard Chrome Extension](https://github.com/notjiam/apeboard-chrome-extension/blob/main/image.png?raw=true)
+
 ## How to config in local
 
 Download this project, unzip and let config.
