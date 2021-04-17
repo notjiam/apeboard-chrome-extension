@@ -5,69 +5,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
   <title>Apeboard Extension</title>
-  <style>
-    .iframe-wrapper{
-      transform-origin: left top;
-      transform: scale(0.8);
-      position: relative;
-      height: 750px;
-      width: 446px;
-      overflow: hidden;
-    }
-    #iframe{
-      position: absolute;
-      top: -380px;
-      left: 0;
-      width: 105%;
-      height: calc(100% + 422px);
-    }
-    .price-list{
-      position: fixed;
-      left: 0;
-      right: 0;
-      top:0;
-      display: flex;
-      justify-content: space-between;
-      z-index: 100;
-      background: #fff;
-    }
-    .price-list>div{
-      padding: 5px 10px;
-      text-align: center;
-    }
-    .price-list .label{
-      font-size: 8px;
-      color: #ccc;
-    }
-    .price-list .value{
-      font-size: 14px;
-    }
-  </style>
-  <script src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body style="width:357px; height:600px;padding:0;margin:0">
-  <div class="price-list">
-    <div>
-      <div class="label">USD/THB</div>
-      <div class="value" id="usdt-satang"></div>
-    </div>
-    <div>
-      <div class="label">BNB/THB</div>
-      <div class="value" id="bnb-thb-satang"></div>
-    </div>
-    <div>
-      <div class="label">BNB/USD Satang</div>
-      <div class="value" id="bnb-satang"></div>
-    </div>
-    <div>
-      <div class="label">BNB/USD Binance</div>
-      <div class="value" id="bnb-binance"></div>
-    </div>
-  </div>
-  <div class="iframe-wrapper">
-    <iframe 
-    id="iframe"
-    src="https://apeboard.finance/dashboard/YOUR_WALLET_ADDRESS?chain=BSC" frameborder="0" ></iframe>  
-  </div>
+<body>
+  <div class="price-list"></div>
+  <div class="iframe-wrapper"></div>
+  <script src="script.js"></script>
 </body>
 </html>

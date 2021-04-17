@@ -8,23 +8,31 @@ Chrome extension wrap https://apeboard.finance/ in iframe and get latest price.
 
 Download this project, unzip and let config.
 
-### Config Wallet
-Go to `popup.html` file.
+### Config Wallet and Symbols
+Go to `script.js` file.
 ```
-<iframe 
-    id="iframe"
-    src="https://apeboard.finance/dashboard/YOUR_WALLET_ADDRESS?chain=BSC" frameborder="0" ></iframe>
+const config = {
+  WALLET_ADDRESS: "YOUR_WALLET_ADDRESS",
+  SYMBOLS: [
+    "THB_BTC",
+    "THB_ETH",
+    "THB_BNB",
+    "THB_DOGE",
+  ],
+};
 ```
 
-You can change **YOUR_WALLET_ADDRESS** to you wallet address and you can change **chain** also.
+You can change **YOUR_WALLET_ADDRESS** to you wallet address.
 
-### Config price
+### Config symbols in notification badge.
 
 Go to `background.js` file.
 
 ```
-const POLLING_TIMER = 1000 * 60 // 1 min
-const symbol = "bnb_thb" // Satang Pro Symbol
+const config = {
+  SYMBOL: "THB_XRP", // Bitkub Symbol
+  POLLING_TIMER: 60,  // Sec
+}
 ```
 You can change polling time and symbol too.
 

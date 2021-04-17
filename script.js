@@ -1,14 +1,87 @@
-(async () => {
-  const resUsdt = await fetch('https://api.tdax.com/api/v3/ticker/24hr?symbol=usdt_thb')
-  const usdt = await resUsdt.json();
-  document.getElementById('usdt-satang').innerHTML = `$${usdt.askPrice}`;
-  
-  const resBNB = await fetch('https://api.tdax.com/api/v3/ticker/24hr?symbol=bnb_thb')
-  const bnb = await resBNB.json();
-  document.getElementById('bnb-thb-satang').innerHTML = `฿${parseFloat(bnb.askPrice).toLocaleString()}`;
-  document.getElementById('bnb-satang').innerHTML = `$${(bnb.askPrice / usdt.askPrice).toFixed(2).toLocaleString()}`;
+const config = {
+  WALLET_ADDRESS: "YOUR_WALLET_ADDRESS",
+  SYMBOLS: [
+    "THB_BTC",
+    "THB_ETH",
+    "THB_BNB",
+    "THB_DOGE",
+  ],
+};
 
-  const resBNBBinance = await fetch('https://api.binance.com/api/v3/ticker/price?symbol=BNBUSDT')
-  const bnbBinance = await resBNBBinance.json();
-  document.getElementById('bnb-binance').innerHTML = `$${parseFloat(bnbBinance.price).toFixed(2)}`;
-})()
+(async () => {
+  document.querySelector('.iframe-wrapper').innerHTML = `<iframe 
+    id="iframe"
+    src="https://apeboard.finance/dashboard/${config.WALLET_ADDRESS}?chain=BSC" 
+    frameborder="0" />
+  `;
+
+  const resTicker = await fetch(`https://api.bitkub.com/api/market/ticker`)
+  const tickers = await resTicker.json();
+  renderPrice(tickers);
+
+})();
+
+function renderPrice(tickers) {
+  config.SYMBOLS.forEach(symbol => {
+    if (tickers[symbol] && tickers[symbol].last) {
+      document.querySelector ('.price-list').innerHTML += `
+        <div>
+          <div class="label">${symbol.replace('_', '/')}</div>
+          <div class="value">${tickers[symbol].last.toLocaleString()}</div>
+        </div>
+      `;
+    }
+    
+  })
+  
+
+  // return div.firstChild; 
+};
+
+// All Bitkub SYMBOLS
+/*
+THB_BTC
+THB_ETH
+THB_WAN
+THB_ADA
+THB_OMG
+THB_BCH
+THB_USDT
+THB_LTC
+THB_XRP
+THB_BSV
+THB_ZIL
+THB_SNT
+THB_CVC
+THB_LINK
+THB_IOST
+THB_ZRX
+THB_KNC
+THB_RDN
+THB_ABT
+THB_MANA
+THB_INF
+THB_CTXC
+THB_XLM
+THB_SIX
+THB_JFIN
+THB_EVX
+THB_BNB
+THB_POW
+THB_DOGE
+THB_DAI
+THB_USDC
+THB_BAT
+THB_MKR
+THB_BAND
+THB_COMP
+THB_KSM
+THB_DOT
+THB_NEAR
+THB_SCRT
+THB_GLM
+THB_DON
+THB_YFI
+THB_UNI
+THB_AAVE
+*/
