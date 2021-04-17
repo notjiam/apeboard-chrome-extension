@@ -8,11 +8,12 @@ Chrome extension wrap https://apeboard.finance/ in iframe and get latest price.
 
 Download this project, unzip and let config.
 
-### Config Wallet and Symbols
+### Config Wallet, Chain network and Symbols 
 Go to `script.js` file.
 ```
 const config = {
   WALLET_ADDRESS: "YOUR_WALLET_ADDRESS",
+  CHAIN: "BSC", // ETHEREUM | BSC | TERRA
   SYMBOLS: [
     "THB_BTC",
     "THB_ETH",

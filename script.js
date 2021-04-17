@@ -1,5 +1,6 @@
 const config = {
   WALLET_ADDRESS: "YOUR_WALLET_ADDRESS",
+  CHAIN: "BSC", // ETHEREUM | BSC | TERRA
   SYMBOLS: [
     "THB_BTC",
     "THB_ETH",
@@ -11,7 +12,7 @@ const config = {
 (async () => {
   document.querySelector('.iframe-wrapper').innerHTML = `<iframe 
     id="iframe"
-    src="https://apeboard.finance/dashboard/${config.WALLET_ADDRESS}?chain=BSC" 
+    src="https://apeboard.finance/dashboard/${config.WALLET_ADDRESS}?chain=${config.CHAIN}" 
     frameborder="0" />
   `;
 
