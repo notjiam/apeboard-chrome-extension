@@ -34,9 +34,6 @@ function renderPrice(tickers) {
     }
     
   })
-  
-
-  // return div.firstChild; 
 };
 
 // All Bitkub SYMBOLS

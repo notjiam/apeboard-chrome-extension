@@ -25,6 +25,17 @@ const config = {
 
 You can change **YOUR_WALLET_ADDRESS** to you wallet address.
 
+### Change Bitkub API to Binance API (optional)
+
+In `popup.html` you can change to use Binance API by rename JS file
+```
+<script src="script.js"></script>
+```
+to
+```
+<script src="script-binance.js"></script>
+```
+
 ### Config symbols in notification badge.
 
 Go to `background.js` file.
